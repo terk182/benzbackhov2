@@ -1,0 +1,37 @@
+﻿# Python
+.venv/
+*.py
+server.pem
+__pycache__/
+
+# Old files
+index-old.html
+index-v2.html
+clone_assets.py
+https_server.py
+https_server_clean.py
+resources.txt
+
+# Scripts
+*.ps1
+watchdog.ps1
+setup_*.ps1
+switch_*.ps1
+fix_*.ps1
+install_*.ps1
+copy_photos.ps1
+config_fixed.yml
+
+# Cloned assets (not needed)
+cdnjs.cloudflare.com/
+cloud.makewebstatic.com/
+fonts.googleapis.com/
+image.makewebeasy.net/
+include/
+customer-css/
+th/
+
+# Temp
+*.pem
+_iis_*.txt
+_svc*.txt
