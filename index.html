@@ -526,11 +526,11 @@
         /* ===== GALLERY ===== */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
         }
         .gallery-item {
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
             position: relative;
@@ -543,19 +543,79 @@
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
+        .gallery-item:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .gallery-item:hover img { transform: scale(1.08); }
         .gallery-item::after {
-            content: '';
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
             inset: 0;
-            background: linear-gradient(transparent 60%, rgba(10,14,23,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: rgba(0,0,0,0.5);
             opacity: 0;
             transition: var(--transition);
         }
-        .gallery-item:hover::after {
-            opacity: 1;
+        .gallery-item:hover::after { opacity: 1; }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.95);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1;
+            background: none;
+            border: none;
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.1); }
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .lightbox-prev:hover, .lightbox-next:hover { background: var(--gold); color: var(--navy); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
         }
 
         /* ===== CTA ===== */
@@ -1012,52 +1072,18 @@
             <h2>ภาพหน้างานจริง</h2>
             <p>ผลงานที่ผ่านมาของเรา รับประกันคุณภาพและความเป็นมืออาชีพ</p>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item fade-in"><img src="/images/S__4341845.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341848.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341849.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341851.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341852.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341853.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341883.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341884.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341885.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341886.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341887.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341888.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341890.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341891.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341892.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341895.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341896.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341897.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341900.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341901.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341902.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__4341903.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59580426.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59580432.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59580434.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59588618.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59588620.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59588621.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/S__59588622.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/10351.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/10354.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/10542.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/11036.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/9879.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/backhoe-2.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/backhoe-site.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/backhoe-work.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/construction-site.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/dumptruck.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/dumptruck-2.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/excavator-orange.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-            <div class="gallery-item fade-in"><img src="/images/excavator-work.jpg" alt="หน้างาน benzbackho" loading="lazy"></div>
-        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
     </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
+    <img src="" alt="" id="lightboxImg">
+    <button class="lightbox-next" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 84</div>
+</div>
 
 <!-- ===== ABOUT ===== -->
 <section class="section" id="about" style="background: var(--navy2);">
@@ -1172,6 +1198,71 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== DYNAMIC GALLERY + LIGHTBOX =====
+    const galleryImages = [
+        'S__4341845.jpg','S__4341848.jpg','S__4341849.jpg','S__4341851.jpg','S__4341852.jpg','S__4341853.jpg',
+        'S__4341883.jpg','S__4341884.jpg','S__4341885.jpg','S__4341886.jpg','S__4341887.jpg','S__4341888.jpg',
+        'S__4341890.jpg','S__4341891.jpg','S__4341892.jpg','S__4341895.jpg','S__4341896.jpg','S__4341897.jpg',
+        'S__4341900.jpg','S__4341901.jpg','S__4341902.jpg','S__4341903.jpg',
+        'S__59580426.jpg','S__59580432.jpg','S__59580434.jpg','S__59588618.jpg','S__59588620.jpg','S__59588621.jpg','S__59588622.jpg',
+        '10351.jpg','10354.jpg','10542.jpg','11036.jpg','9879.jpg',
+        'backhoe-2.jpg','backhoe-site.jpg','backhoe-work.jpg','construction-site.jpg',
+        'dumptruck.jpg','dumptruck-2.jpg','excavator-orange.jpg','excavator-work.jpg',
+        '528_0.jpg','529_0.jpg','530_0.jpg',
+        'S__34430991_0.jpg','S__34430992_0.jpg','S__34430993_0.jpg','S__34430994_0.jpg','S__34430995_0.jpg',
+        'S__34430996_0.jpg','S__34430997_0.jpg','S__34430998_0.jpg','S__34430999_0.jpg',
+        'S__34431000_0.jpg','S__34431002_0.jpg','S__34431003_0.jpg','S__34431004_0.jpg','S__34431005_0.jpg',
+        'S__34431006_0.jpg','S__34431007_0.jpg','S__34431008_0.jpg','S__34431009_0.jpg','S__34431010_0.jpg',
+        'S__34431011_0.jpg','S__34431013_0.jpg','S__34431014_0.jpg','S__34431015_0.jpg','S__34431016_0.jpg',
+        'S__34431017_0.jpg','S__34431018_0.jpg','S__34431019_0.jpg','S__34431020_0.jpg','S__34431021_0.jpg',
+        'S__34431022_0.jpg','S__34431024_0.jpg','S__34431025_0.jpg','S__34431026_0.jpg','S__34431027_0.jpg',
+        'S__34431028_0.jpg','S__34431029_0.jpg','S__34431030_0.jpg','S__34431031_0.jpg'
+    ];
+
+    let currentIndex = 0;
+    const grid = document.getElementById('galleryGrid');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCounter = document.getElementById('lightboxCounter');
+
+    // Build gallery
+    galleryImages.forEach((img, i) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item fade-in';
+        item.innerHTML = `<img src="/images/${img}" alt="ผลงาน benzbackho" loading="lazy">`;
+        item.addEventListener('click', () => openLightbox(i));
+        grid.appendChild(item);
+        observer.observe(item);
+    });
+
+    // Lightbox
+    function openLightbox(index) {
+        currentIndex = index;
+        lbImg.src = `/images/${galleryImages[currentIndex]}`;
+        lbCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function prevImg() { openLightbox((currentIndex - 1 + galleryImages.length) % galleryImages.length); }
+    function nextImg() { openLightbox((currentIndex + 1) % galleryImages.length); }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', prevImg);
+    document.getElementById('lightboxNext').addEventListener('click', nextImg);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevImg();
+        if (e.key === 'ArrowRight') nextImg();
+    });
 
     // Google Tag Manager
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
