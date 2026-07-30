@@ -700,10 +700,16 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 100px 0 60px;
+            }
             .hero .container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            .hero-content { order: 2; }
+            .hero-visual { order: 1; margin-bottom: 24px; }
             .hero p { margin: 0 auto 32px; }
             .hero-buttons { justify-content: center; }
 
