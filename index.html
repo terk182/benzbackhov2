@@ -165,6 +165,19 @@
         }
         .nav-line:hover { background: rgba(6,199,85,0.1) !important; }
 
+        /* ===== BANNER ===== */
+        .banner-section {
+            width: 100%;
+            margin-top: 72px;
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -708,6 +721,9 @@
             .hero-buttons { justify-content: center; }
             .hero-visual { display: none; }
 
+            .banner-section { margin-top: 64px; }
+            .banner-img { max-height: 300px; }
+
             .services-grid { grid-template-columns: 1fr; }
             .equipment-grid { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: repeat(3, 1fr); }
@@ -777,6 +793,11 @@
         </button>
     </div>
 </nav>
+
+<!-- ===== BANNER ===== -->
+<section class="banner-section">
+    <img src="/images/S__72712251.jpg" alt="benzbackho รถแบคโฮ รถหกล้อดั้ม รับถมที่" class="banner-img">
+</section>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
